@@ -5,6 +5,7 @@ import WorldMap from './components/WorldMap'
 import HeadlineCard from './components/HeadlineCard'
 import LoadingState from './components/LoadingState'
 import HelpModal from './components/HelpModal'
+import ThemeToggle from './components/ThemeToggle'
 import './App.css'
 
 function App() {
@@ -35,9 +36,12 @@ function App() {
             <h1 className="app-title">Global News Map</h1>
             <p className="app-subtitle">Click a city to see the latest headline</p>
           </div>
-          <button className="help-button" onClick={() => setShowHelp(true)}>
-            How to Use
-          </button>
+          <div className="header-buttons">
+            <ThemeToggle />
+            <button className="help-button" onClick={() => setShowHelp(true)}>
+              How to Use
+            </button>
+          </div>
         </div>
       </header>
       <main className="app-main">

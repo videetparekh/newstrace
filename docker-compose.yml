@@ -9,7 +9,7 @@ services:
       - CACHE_TTL_MINUTES=${CACHE_TTL_MINUTES:-30}
       - LOCATIONS_FILE=/app/data/locations.json
     volumes:
-      - ./data:/app/data:ro
+      - ./service/data:/app/data:ro
       - ./docs:/app/docs:ro
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]

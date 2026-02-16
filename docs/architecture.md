@@ -73,7 +73,16 @@ service/
 
 ### Application Startup
 
-The FastAPI application uses a lifespan context manager defined in `main.py`. During startup, it calls `load_locations()` which reads `data/locations.json` and parses each entry into a `Location` Pydantic model. These are stored in a module-level list in `services/locations.py` and remain in memory for the lifetime of the process.
+The FastAPI application uses a lifespan context manager defined in `main.py`. During startup, it calls `load_locations()` which reads `service/data/locations.json` and parses each entry into a `Location` Pydantic model. These are stored in a module-level list in `services/locations.py` and remain in memory for the lifetime of the process.
+
+Logging is configured at startup to provide visibility into the application state. When locations are loaded successfully, you will see:
+
+```
+INFO - Loading locations from: .../service/data/locations.json
+INFO - Successfully loaded 20 locations
+```
+
+If there are any errors loading the locations file (file not found, invalid JSON), the application will log an error and fail to start.
 
 ### Configuration
 
@@ -81,7 +90,7 @@ Settings are managed by the `Settings` class in `config.py`, which extends `pyda
 
 - `NEWS_API_KEY` -- API key for NewsAPI.org (default: empty string).
 - `CACHE_TTL_MINUTES` -- Cache duration in minutes (default: 30).
-- `LOCATIONS_FILE` -- Path to the locations JSON file (default: `../../data/locations.json`).
+- `LOCATIONS_FILE` -- Path to the locations JSON file (default: `data/locations.json`, relative to service working directory).
 
 ### Caching Strategy
 
@@ -113,7 +122,9 @@ ui/
   src/
     main.jsx                    # React DOM entry point
     App.jsx                     # Root component, state orchestration
-    App.css                     # Application-level styles
+    App.css                     # Application-level styles with theme CSS variables
+    contexts/
+      ThemeContext.jsx          # Theme provider for dark/light mode
     components/
       WorldMap.jsx              # Map container with tile layer and markers
       WorldMap.css              # Map styling
@@ -122,6 +133,8 @@ ui/
       HeadlineCard.css          # Headline card styling
       LoadingState.jsx          # Loading spinner/indicator
       LoadingState.css          # Loading state styling
+      ThemeToggle.jsx           # Theme toggle button component
+      ThemeToggle.css           # Theme toggle styling
     hooks/
       useLocations.js           # Hook for fetching and managing location data
       useNews.js                # Hook for fetching and managing headline data
@@ -156,6 +169,20 @@ App
 **useLocations** (`hooks/useLocations.js`): Fetches the list of locations from `/api/locations` on component mount. Returns `{ locations, loading }`. The fetch runs once via a `useEffect` with an empty dependency array.
 
 **useNews** (`hooks/useNews.js`): Manages headline fetching and state. Provides `fetchNews(locationId)` to trigger a fetch, `clearHeadline()` to reset the state, and returns `{ headline, loading, error, fetchNews, clearHeadline }`. Uses `useCallback` to memoize both functions.
+
+### Theme System
+
+The application supports light and dark themes via React Context and CSS variables:
+
+**ThemeContext** (`contexts/ThemeContext.jsx`): Provides global theme state management. The `ThemeProvider` component wraps the entire application and manages theme state, localStorage persistence, and applying the `data-theme` attribute to the document body. The `useTheme()` hook exposes `{ theme, toggleTheme }` to child components.
+
+**CSS Variables** (`App.css`): Theme colors are defined as CSS variables in two scopes:
+- `:root` defines light theme colors (default)
+- `[data-theme="dark"]` defines dark theme colors
+
+All color references throughout the application use these variables (e.g., `var(--text-primary)`, `var(--bg-secondary)`), ensuring consistent theming. A 300ms transition is applied to all color properties for smooth theme switching.
+
+**ThemeToggle** (`components/ThemeToggle.jsx`): A button component that displays a sun (☀️) or moon (🌙) icon based on the current theme and calls `toggleTheme()` when clicked. The user's theme preference persists in localStorage.
 
 ### Build Tooling
 

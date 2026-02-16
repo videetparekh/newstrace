@@ -1,5 +1,5 @@
 .headline-card {
-  background: #ffffff;
+  background: var(--bg-secondary);
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
   overflow: hidden;
@@ -22,32 +22,32 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 1.25rem 1.25rem 0.75rem;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .headline-city {
   margin: 0;
   font-size: 1.25rem;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .headline-country {
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--text-secondary);
 }
 
 .headline-close {
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: #94a3b8;
+  color: var(--text-tertiary);
   cursor: pointer;
   padding: 0;
   line-height: 1;
 }
 
 .headline-close:hover {
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .headline-card-body {
@@ -58,27 +58,27 @@
   margin: 0 0 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: #1e293b;
+  color: var(--text-primary);
 }
 
 .headline-meta {
   display: flex;
   gap: 1rem;
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
 .headline-source {
   font-weight: 600;
-  color: #0ea5e9;
+  color: var(--accent-color);
 }
 
 .headline-link {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: #0ea5e9;
-  color: #fff;
+  background: var(--accent-color);
+  color: var(--header-text);
   text-decoration: none;
   border-radius: 6px;
   font-size: 0.85rem;
@@ -86,5 +86,5 @@
 }
 
 .headline-link:hover {
-  background: #0284c7;
+  background: var(--accent-hover);
 }

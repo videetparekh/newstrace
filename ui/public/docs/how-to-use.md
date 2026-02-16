@@ -97,6 +97,16 @@ If something goes wrong when fetching a headline, an error message will appear i
 
 In both cases, you can try clicking the same city again or selecting a different city.
 
+## Theme Toggle
+
+The application supports both light and dark themes. To switch between themes:
+
+1. Look for the theme toggle button in the top-right corner of the application header (next to the "How to Use" button).
+2. Click the toggle button to switch between light mode (☀️ sun icon) and dark mode (🌙 moon icon).
+3. Your theme preference is automatically saved and will be remembered the next time you visit the application.
+
+The theme affects the entire application interface, including the header, sidebar, headline cards, and this help modal.
+
 ## Caching
 
 Headlines are cached by the backend for 30 minutes. If you click the same city multiple times within that window, you will see the same headline. After 30 minutes, a fresh headline will be fetched from the news sources.

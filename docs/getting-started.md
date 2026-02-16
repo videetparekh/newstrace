@@ -19,9 +19,9 @@ You will also need a **NewsAPI key** for full functionality. You can obtain one 
 
 ```
 global_news_map/
-  data/
-    locations.json          # 20 city definitions with coordinates
   service/                  # FastAPI backend
+    data/
+      locations.json        # 20 city definitions with coordinates
     src/global_news_map/
       api/routes.py         # API endpoint definitions
       models/schemas.py     # Pydantic data models
@@ -69,10 +69,23 @@ export NEWS_API_KEY=your_api_key_here
 4. Start the backend development server:
 
 ```bash
+poetry run python3 src/global_news_map/main.py
+```
+
+Alternatively, you can use Uvicorn directly:
+
+```bash
 poetry run uvicorn global_news_map.main:app --reload --port 8000
 ```
 
-The API will be available at `http://localhost:8000`. You can verify it is running by visiting `http://localhost:8000/api/health` in your browser or with curl:
+The API will be available at `http://localhost:8000`. When the server starts, you should see log output indicating locations were loaded successfully:
+
+```
+INFO - Loading locations from: .../service/data/locations.json
+INFO - Successfully loaded 20 locations
+```
+
+You can verify the API is running by visiting `http://localhost:8000/api/health` in your browser or with curl:
 
 ```bash
 curl http://localhost:8000/api/health
@@ -114,7 +127,7 @@ For local development, you need two terminal sessions running concurrently:
 
 ```bash
 cd service
-poetry run uvicorn global_news_map.main:app --reload --port 8000
+poetry run python3 src/global_news_map/main.py
 ```
 
 **Terminal 2 -- Frontend:**
@@ -148,7 +161,7 @@ yarn vitest run
 |--------------------|----------|------------------------------|----------------------------------------------|
 | `NEWS_API_KEY`     | No       | `""` (empty)                 | API key for NewsAPI.org. Falls back to Google News RSS if not set. |
 | `CACHE_TTL_MINUTES`| No       | `30`                         | Duration in minutes to cache news headlines. |
-| `LOCATIONS_FILE`   | No       | `../../data/locations.json`  | Path to the locations JSON file.             |
+| `LOCATIONS_FILE`   | No       | `data/locations.json`        | Path to the locations JSON file (relative to working directory). |
 
 ## Troubleshooting
 

@@ -10,7 +10,7 @@ The following environment variables must be configured for production:
 |---------------------|----------|-----------------------------|--------------------------------------------------------------|
 | `NEWS_API_KEY`      | Yes      | `""` (empty)                | API key from [NewsAPI.org](https://newsapi.org). Without this, the service falls back to Google News RSS only. |
 | `CACHE_TTL_MINUTES` | No       | `30`                        | How long (in minutes) to cache each headline in memory.      |
-| `LOCATIONS_FILE`    | No       | `../../data/locations.json` | Path to the locations JSON data file. Must be adjusted for Docker or non-standard directory layouts. |
+| `LOCATIONS_FILE`    | No       | `data/locations.json`       | Path to the locations JSON data file (relative to service working directory). |
 
 ## Production Builds
 
@@ -58,7 +58,7 @@ COPY pyproject.toml poetry.lock ./
 RUN poetry install --only main --no-interaction
 
 COPY src/ src/
-COPY ../data/locations.json /app/data/locations.json
+COPY data/ data/
 
 ENV LOCATIONS_FILE=/app/data/locations.json
 
@@ -159,7 +159,7 @@ services:
       - CACHE_TTL_MINUTES=30
       - LOCATIONS_FILE=/app/data/locations.json
     volumes:
-      - ./data:/app/data:ro
+      - ./service/data:/app/data:ro
     restart: unless-stopped
 
   ui:

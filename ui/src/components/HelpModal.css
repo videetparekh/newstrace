@@ -22,7 +22,7 @@
 }
 
 .help-modal {
-  background: #ffffff;
+  background: var(--bg-secondary);
   border-radius: 12px;
   width: 90%;
   max-width: 800px;
@@ -49,20 +49,20 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .help-modal-header h2 {
   margin: 0;
   font-size: 1.5rem;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .help-close {
   background: none;
   border: none;
   font-size: 2rem;
-  color: #94a3b8;
+  color: var(--text-tertiary);
   cursor: pointer;
   padding: 0;
   line-height: 1;
@@ -71,7 +71,7 @@
 }
 
 .help-close:hover {
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .help-modal-body {
@@ -83,7 +83,7 @@
 .help-modal-body h1 {
   font-size: 1.75rem;
   margin: 1.5rem 0 1rem;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .help-modal-body h1:first-child {
@@ -93,19 +93,19 @@
 .help-modal-body h2 {
   font-size: 1.25rem;
   margin: 1.25rem 0 0.75rem;
-  color: #1e293b;
+  color: var(--text-primary);
 }
 
 .help-modal-body h3 {
   font-size: 1rem;
   margin: 1rem 0 0.5rem;
-  color: #334155;
+  color: var(--text-secondary);
 }
 
 .help-modal-body p {
   margin: 0.5rem 0;
   line-height: 1.6;
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 .help-modal-body ul {
@@ -116,11 +116,11 @@
 .help-modal-body li {
   margin: 0.25rem 0;
   line-height: 1.6;
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 .help-modal-body strong {
-  color: #0f172a;
+  color: var(--text-primary);
   font-weight: 600;
 }
 

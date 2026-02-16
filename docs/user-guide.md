@@ -6,6 +6,17 @@ Global News Map is an interactive web application that displays the latest news 
 
 When you open the application, you will see an interactive world map powered by OpenStreetMap. The map displays markers for 20 cities across six continents. Clicking any marker fetches and displays the latest news headline for that city in a sidebar panel.
 
+## Theme Toggle
+
+The application supports both light and dark themes. To switch between themes:
+
+1. Locate the theme toggle button in the header (next to the "How to Use" button).
+2. In light mode, the button shows a 🌙 moon icon.
+3. In dark mode, the button shows a ☀️ sun icon.
+4. Click the button to toggle between themes.
+
+Your theme preference is automatically saved and will persist when you reload the application. The theme applies to all interface elements including the header, sidebar, headline cards, and modal dialogs.
+
 ## Navigating the Map
 
 ### Zooming

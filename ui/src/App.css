@@ -1,13 +1,58 @@
+/* CSS Variables for theming */
+:root {
+  /* Light theme (default) */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-tertiary: #94a3b8;
+  --border-color: #e2e8f0;
+  --accent-color: #0ea5e9;
+  --accent-hover: #0284c7;
+  --header-gradient-start: #0f172a;
+  --header-gradient-end: #1e3a5f;
+  --header-text: #ffffff;
+  --error-bg: #fef2f2;
+  --error-border: #fecaca;
+  --error-text: #dc2626;
+  --overlay-bg: rgba(255, 255, 255, 0.1);
+  --overlay-border: rgba(255, 255, 255, 0.2);
+  --overlay-hover-bg: rgba(255, 255, 255, 0.2);
+  --overlay-hover-border: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --border-color: #334155;
+  --accent-color: #0ea5e9;
+  --accent-hover: #38bdf8;
+  --header-gradient-start: #020617;
+  --header-gradient-end: #0f172a;
+  --header-text: #f1f5f9;
+  --error-bg: #450a0a;
+  --error-border: #991b1b;
+  --error-text: #fca5a5;
+  --overlay-bg: rgba(15, 23, 42, 0.3);
+  --overlay-border: rgba(51, 65, 85, 0.5);
+  --overlay-hover-bg: rgba(15, 23, 42, 0.5);
+  --overlay-hover-border: rgba(51, 65, 85, 0.7);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .app {
@@ -18,13 +63,18 @@ body {
 
 .app-header {
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--header-gradient-start) 0%, var(--header-gradient-end) 100%);
+  color: var(--header-text);
 }
 
 .app-header-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.header-buttons {
+  display: flex;
   align-items: center;
 }
 
@@ -35,14 +85,14 @@ body {
 
 .app-subtitle {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: var(--text-tertiary);
   margin-top: 0.25rem;
 }
 
 .help-button {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: var(--overlay-bg);
+  border: 1px solid var(--overlay-border);
+  color: var(--header-text);
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-size: 0.875rem;
@@ -51,8 +101,8 @@ body {
 }
 
 .help-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--overlay-hover-bg);
+  border-color: var(--overlay-hover-border);
 }
 
 .app-main {
@@ -72,20 +122,20 @@ body {
   align-items: center;
   justify-content: center;
   height: 200px;
-  background: #fff;
+  background: var(--bg-secondary);
   border-radius: 12px;
-  border: 2px dashed #e2e8f0;
-  color: #94a3b8;
+  border: 2px dashed var(--border-color);
+  color: var(--text-tertiary);
   text-align: center;
   padding: 1.5rem;
 }
 
 .error-message {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
   border-radius: 12px;
   padding: 1rem 1.25rem;
-  color: #dc2626;
+  color: var(--error-text);
   font-size: 0.9rem;
 }
 
