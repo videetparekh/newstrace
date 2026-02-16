@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 
 from global_news_map.models.schemas import HealthResponse, Location, NewsResponse
 from global_news_map.services.locations import get_all_locations, get_location_by_id
-from global_news_map.services.news import get_headline
+from global_news_map.services.news import get_headlines
 
 router = APIRouter(prefix="/api")
 
@@ -23,13 +23,13 @@ async def get_news(location_id: str):
     if not location:
         raise HTTPException(status_code=404, detail=f"Location '{location_id}' not found")
 
-    headline = await get_headline(location_id, location.city, location.country)
-    if not headline:
+    headlines = await get_headlines(location_id, location.city, location.country)
+    if not headlines:
         raise HTTPException(status_code=503, detail="Unable to fetch news at this time")
 
     return NewsResponse(
         location_id=location.location_id,
         city=location.city,
         country=location.country,
-        headline=headline,
+        headlines=headlines,
     )

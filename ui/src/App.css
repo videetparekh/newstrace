@@ -109,42 +109,4 @@ body {
   display: flex;
   flex: 1;
   padding: 1rem;
-  gap: 1rem;
-}
-
-.app-sidebar {
-  width: 360px;
-  flex-shrink: 0;
-}
-
-.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  background: var(--bg-secondary);
-  border-radius: 12px;
-  border: 2px dashed var(--border-color);
-  color: var(--text-tertiary);
-  text-align: center;
-  padding: 1.5rem;
-}
-
-.error-message {
-  background: var(--error-bg);
-  border: 1px solid var(--error-border);
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  color: var(--error-text);
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .app-main {
-    flex-direction: column;
-  }
-
-  .app-sidebar {
-    width: 100%;
-  }
 }

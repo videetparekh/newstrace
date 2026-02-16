@@ -3,7 +3,7 @@ import LocationMarker from './LocationMarker'
 import 'leaflet/dist/leaflet.css'
 import './WorldMap.css'
 
-export default function WorldMap({ locations, onLocationClick }) {
+export default function WorldMap({ locations, onLocationHover, newsData, isLoading, hoveredLocationId }) {
   return (
     <div className="world-map">
       <MapContainer
@@ -22,7 +22,9 @@ export default function WorldMap({ locations, onLocationClick }) {
           <LocationMarker
             key={loc.location_id}
             location={loc}
-            onClick={onLocationClick}
+            onMouseOver={onLocationHover}
+            newsData={hoveredLocationId === loc.location_id ? newsData : null}
+            isLoading={hoveredLocationId === loc.location_id && isLoading}
           />
         ))}
       </MapContainer>

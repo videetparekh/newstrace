@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
 
 export function useNews() {
-  const [headline, setHeadline] = useState(null)
+  const [headlines, setHeadlines] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
@@ -14,19 +14,19 @@ export function useNews() {
         throw new Error(resp.status === 503 ? 'News unavailable for this location' : 'Failed to fetch news')
       }
       const data = await resp.json()
-      setHeadline(data)
+      setHeadlines(data)
     } catch (err) {
       setError(err.message)
-      setHeadline(null)
+      setHeadlines(null)
     } finally {
       setLoading(false)
     }
   }, [])
 
-  const clearHeadline = useCallback(() => {
-    setHeadline(null)
+  const clearHeadlines = useCallback(() => {
+    setHeadlines(null)
     setError(null)
   }, [])
 
-  return { headline, loading, error, fetchNews, clearHeadline }
+  return { headlines, loading, error, fetchNews, clearHeadlines }
 }

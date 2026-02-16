@@ -24,7 +24,7 @@ class NewsResponse(BaseModel):
     location_id: str
     city: str
     country: str
-    headline: Headline
+    headlines: list[Headline]
 
 
 class HealthResponse(BaseModel):

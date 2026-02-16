@@ -9,7 +9,7 @@ if git diff --quiet "$MERGE_BASE..HEAD" -- 'src/' 'ui/'; then
   exit 0
 fi
 
-claude /update-docs
+claude -p "Update user-facing documentation based on code and UI changes"
 
 echo ""
 echo "Review changes:"
