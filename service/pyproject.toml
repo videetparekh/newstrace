@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "global-news-map-service"
+version = "1.0.0"
+description = "Backend service for Global News Map"
+authors = ["Videet"]
+readme = "README.md"
+packages = [{include = "global_news_map", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.0"
+uvicorn = {extras = ["standard"], version = "^0.34.0"}
+httpx = "^0.28.0"
+pydantic = "^2.10.0"
+pydantic-settings = "^2.7.0"
+feedparser = "^6.0.11"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+pytest-asyncio = "^0.25.0"
+httpx = "^0.28.0"
+ruff = "^0.9.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100

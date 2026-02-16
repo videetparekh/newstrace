@@ -1,0 +1,9 @@
+{
+  "skills": {
+    "update-docs": {
+      "enabled": true,
+      "path": "skills/update-docs/skill.js",
+      "description": "AI-powered documentation updates based on code changes"
+    }
+  }
+}

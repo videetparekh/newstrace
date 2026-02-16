@@ -1,0 +1,12 @@
+from pydantic_settings import BaseSettings
+
+
+class Settings(BaseSettings):
+    news_api_key: str = ""
+    cache_ttl_minutes: int = 30
+    locations_file: str = "../data/locations.json"
+
+    model_config = {"env_prefix": "", "env_file": ".env"}
+
+
+settings = Settings()

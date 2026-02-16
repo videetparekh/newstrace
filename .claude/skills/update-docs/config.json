@@ -1,0 +1,31 @@
+{
+  "name": "update-docs",
+  "version": "1.0.0",
+  "description": "AI-powered documentation updates based on code changes",
+  "author": "Claude Code",
+  "main": "skill.js",
+  "type": "module",
+  "hookMode": {
+    "enabled": true,
+    "autoAccept": false,
+    "timeout": 30000
+  },
+  "ai": {
+    "model": "claude-sonnet-4-20250514",
+    "maxTokens": 8192,
+    "temperature": 0.3
+  },
+  "docs": {
+    "userFacingPatterns": [
+      "service/src/api/**/*.py",
+      "ui/src/components/**/*.{jsx,tsx}",
+      "ui/src/pages/**/*.{jsx,tsx}",
+      "data/locations.json"
+    ],
+    "excludePatterns": [
+      "**/*.test.*",
+      "**/utils/**",
+      "scripts/**"
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+.headline-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headline-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.25rem 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.headline-city {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.headline-country {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.headline-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.headline-close:hover {
+  color: #0f172a;
+}
+
+.headline-card-body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.headline-title {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1e293b;
+}
+
+.headline-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.headline-source {
+  font-weight: 600;
+  color: #0ea5e9;
+}
+
+.headline-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #0ea5e9;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+.headline-link:hover {
+  background: #0284c7;
+}
