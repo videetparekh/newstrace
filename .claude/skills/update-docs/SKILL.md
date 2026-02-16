@@ -7,13 +7,17 @@ allowed-tools: Bash(git *), Read, Edit
 ---
 
 ## Context
-- Code changes: !`git diff $(git merge-base HEAD origin/main)..HEAD -- src/`
-- UI changes: !`git diff $(git merge-base HEAD origin/main)..HEAD -- ui/`
+- Merge base: !`git merge-base HEAD main`
+- Code changes: Use the merge base from above to run `git diff <merge-base>..HEAD -- src/`
+- UI changes: Use the merge base from above to run `git diff <merge-base>..HEAD -- ui/`
 - Documentation: `docs/` and `ui/public/docs/` directories
 
 ## Your task
-1. Identify which docs are affected by the code/UI changes
-2. Update those docs to reflect the changes
+1. Get the merge base commit hash
+2. View code changes: `git diff <merge-base>..HEAD -- src/`
+3. View UI changes: `git diff <merge-base>..HEAD -- ui/`
+4. Identify which docs are affected
+5. Update those docs
 
 ### Identification criteria
 - API changes → `docs/` (getting started, API reference)

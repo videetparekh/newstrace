@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+MERGE_BASE=$(git merge-base HEAD main)
+
 # Check if there are code or UI changes
-if git diff --quiet "$(git merge-base HEAD origin/main)..HEAD" -- 'src/' 'ui/'; then
+if git diff --quiet "$MERGE_BASE..HEAD" -- 'src/' 'ui/'; then
   echo "No code or UI changes detected, skipping doc update"
   exit 0
 fi
 
-claude --skill update-docs
+claude /update-docs
 
 echo ""
 echo "Review changes:"
