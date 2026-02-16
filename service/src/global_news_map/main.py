@@ -1,3 +1,4 @@
+import logging
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -6,6 +7,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from global_news_map.api.routes import router
 from global_news_map.config import settings
 from global_news_map.services.locations import load_locations
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
 
 @asynccontextmanager
