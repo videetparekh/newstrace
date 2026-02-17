@@ -1,21 +1,50 @@
 # User Guide
 
-Global News Map is an interactive web application that displays the latest news headlines from 20 major cities around the world. This guide explains how to navigate and use the application.
+Global News Guessing Game is an interactive web application where you test your geography knowledge by guessing where news headlines are happening. The game uses real headlines from 20 major cities around the world.
 
 ## Overview
 
-When you open the application, you will see an interactive world map powered by OpenStreetMap. The map displays markers for 20 cities across six continents. Hovering over any marker fetches and displays the top 3 breaking headlines for that city in a popup that appears on the map.
+When you start the application, you'll see a welcome screen with game rules and scoring information. Click "Start Game" to begin playing. The game consists of 5 rounds where you see a headline and must guess which city it comes from by clicking on the map.
 
-## Theme Toggle
+## How to Play
 
-The application supports both light and dark themes. To switch between themes:
+### Starting a Game
 
-1. Locate the theme toggle button in the header (next to the "How to Use" button).
-2. In light mode, the button shows a 🌙 moon icon.
-3. In dark mode, the button shows a ☀️ sun icon.
-4. Click the button to toggle between themes.
+1. Click the "Start Game" button on the welcome screen.
+2. The first headline will load, and the interactive world map will appear.
+3. Read the headline carefully to help you guess the location.
 
-Your theme preference is automatically saved and will persist when you reload the application. The theme applies to all interface elements including the header, sidebar, headline cards, and modal dialogs.
+### Making a Guess
+
+1. Click anywhere on the map where you think the news headline is from.
+2. A blue marker pin will appear showing your guess location.
+3. You can click a new location to move your guess pin.
+4. Once you're confident in your guess, click the "Submit Guess" button.
+
+### Viewing Your Score
+
+After submitting your guess:
+1. A result screen shows how accurate your guess was.
+2. You'll see the distance between your guess and the actual location.
+3. Your score for that round is displayed (up to 1,000 points).
+4. Your cumulative total score is shown.
+
+### Playing Multiple Rounds
+
+1. Click "Next Round" to move to the next headline.
+2. Repeat the guessing process for all 5 rounds.
+3. After round 5, your final score will be displayed with your game summary.
+
+## Scoring System
+
+Points are awarded based on accuracy:
+
+- **Perfect guess (0 km away):** 1,000 points
+- **10,000 km away:** 500 points
+- **20,000+ km away:** 0 points
+- **Maximum possible score:** 5,000 points (1,000 per round × 5 rounds)
+
+Closer guesses earn more points. The scoring formula rewards geographic accuracy.
 
 ## Navigating the Map
 
@@ -36,31 +65,15 @@ The map supports zoom levels from 2 (full world view) to 10 (city-level detail).
 
 The map loads centered at coordinates (20, 0), which provides a balanced view of all continents. All 20 city markers are visible at the default zoom level.
 
-## Hovering Over City Markers
+## Theme Toggle
 
-Each city on the map is represented by a marker pin. To view news for a city:
+The application supports both light and dark themes. To switch between themes:
 
-1. Locate the city marker on the map.
-2. Hover your mouse over the marker (or tap and hold on touchscreens).
-3. The application fetches the top 3 breaking headlines from the backend service.
-4. A loading indicator appears briefly while the headlines are retrieved.
-5. A popup appears showing the top headlines for that city.
+1. Click the theme toggle button in the top-right corner of the header.
+2. In light mode, the button shows a 🌙 moon icon.
+3. In dark mode, the button shows a ☀️ sun icon.
 
-## Reading Headlines
-
-When headlines are loaded, the popup displays the following information for each of the top 3 headlines:
-
-- **City and country:** The name of the selected city and its country, shown at the top of the popup.
-- **Headline ranking:** A numbered indicator (1, 2, or 3) showing the headline's position in the top headlines list.
-- **Headline title:** The title of the news article.
-- **Source:** The name of the news outlet that published the article (e.g., BBC News, Reuters).
-- **Read more link:** A clickable link that opens the original article in a new browser tab.
-
-To dismiss the popup, click the close button (the "x" icon) in the top-right corner of the popup, or move your mouse away from the marker.
-
-## Switching Between Cities
-
-You can hover over a different city marker at any time. The popup will update with the new headlines, replacing the previous ones. There is no need to close the current popup first.
+Your theme preference is automatically saved and will persist when you reload the application. The theme applies to all interface elements including the header, score display, and game screens.
 
 ## Supported Cities
 
@@ -91,23 +104,23 @@ The application covers the following 20 cities:
 
 ## Mobile Usage
 
-The application is usable on mobile devices and tablets. On smaller screens:
+The application is playable on mobile devices and tablets. On smaller screens:
 
 - The map occupies the full viewport width.
-- Tap and hold on a city marker to view its top 3 headlines in a popup.
 - Use standard touch gestures (pinch to zoom, drag to pan) to navigate the map.
-- The "Read more" link opens the source article in your device's default browser.
-- Close the popup by tapping the "x" button or tapping elsewhere on the map.
+- Tap on the map to place your guess marker.
+- Tap the "Submit Guess" button to submit your answer.
 
 ## Error States
 
-If something goes wrong when fetching headlines, an error message will appear in the popup. Common reasons include:
+If something goes wrong:
 
-- **"News unavailable for this location":** The news sources did not return any results for the selected city. This can happen during periods of low news activity for a particular region.
-- **"Failed to fetch news":** A network error occurred. Check your internet connection and try again.
+- **"Game session expired":** The game session timed out. Click "Play Again" to start a new game.
+- **"Failed to fetch headlines":** A network error occurred. Check your internet connection and try starting a new game.
 
-In both cases, you can try hovering over the same city again or selecting a different city.
+## Tips for Better Guessing
 
-## Caching
-
-Headlines are cached by the backend for 30 minutes. If you hover over the same city multiple times within that window, you will see the same headlines. After 30 minutes, fresh headlines will be fetched from the news sources.
+- Read the headline carefully for location clues (place names, languages, time references).
+- Consider regional news patterns and which cities frequently appear in the news.
+- Use the map zoom to explore different regions while thinking about your guess.
+- Remember that some news stories have regional or global impact and may originate from major news hubs.

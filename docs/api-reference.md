@@ -1,8 +1,13 @@
 # API Reference
 
-The Global News Map backend exposes a RESTful API built with FastAPI. All endpoints are prefixed with `/api` and return JSON responses. The API runs on port 8000 by default.
+The Global News Guessing Game backend exposes a RESTful API built with FastAPI. All endpoints are prefixed with `/api` and return JSON responses. The API runs on port 8000 by default.
 
 Base URL: `http://localhost:8000`
+
+The API supports two primary workflows:
+
+1. **Game Mode** - Create game sessions, submit guesses, track scores
+2. **Location/News Queries** - Get city data and headlines (used during gameplay)
 
 ## Endpoints
 
@@ -93,6 +98,163 @@ Each location object contains the following fields:
 The full list includes 20 cities: New York, London, Tokyo, Paris, Sydney, Mumbai, Sao Paulo, Cairo, Moscow, Beijing, Dubai, Singapore, Toronto, Berlin, Lagos, Mexico City, Seoul, Buenos Aires, Nairobi, and Istanbul.
 
 ---
+
+## Game Endpoints
+
+### POST /api/game/start
+
+Initiates a new game session. Creates a game with 5 rounds and returns the first headline.
+
+**Request:**
+
+```
+POST /api/game/start
+```
+
+No request body required.
+
+**Response: 200 OK**
+
+```json
+{
+  "game_id": "550e8400-e29b-41d4-a716-446655440000",
+  "current_round_number": 1,
+  "headline": "New Policy Changes Announced in Parliament"
+}
+```
+
+**Response Fields:**
+
+| Field                    | Type   | Description                                      |
+|--------------------------|--------|--------------------------------------------------|
+| `game_id`                | string | Unique identifier for this game session. Required for subsequent requests. |
+| `current_round_number`   | integer | The current round number (1-5).                  |
+| `headline`               | string | The news headline for the player to guess from.  |
+
+**Response: 503 Service Unavailable**
+
+Returned when headlines cannot be fetched for a game.
+
+```json
+{
+  "detail": "Unable to start game - news sources unavailable"
+}
+```
+
+---
+
+### POST /api/game/{game_id}/guess
+
+Submits a player's guess (map coordinates) for the current round. Calculates the distance to the actual city and awards points.
+
+**Request:**
+
+```
+POST /api/game/{game_id}/guess
+Content-Type: application/json
+
+{
+  "lat": 51.5074,
+  "lng": -0.1278
+}
+```
+
+**Path Parameters:**
+
+| Parameter | Type   | Required | Description                                    |
+|-----------|--------|----------|------------------------------------------------|
+| `game_id` | string | Yes      | The game session ID from `/api/game/start`.    |
+
+**Request Body:**
+
+| Field | Type  | Required | Description                                    |
+|-------|-------|----------|------------------------------------------------|
+| `lat` | float | Yes      | Latitude of the player's guess (-90 to 90).    |
+| `lng` | float | Yes      | Longitude of the player's guess (-180 to 180). |
+
+**Response: 200 OK**
+
+```json
+{
+  "location_id": "london",
+  "city": "London",
+  "country": "United Kingdom",
+  "distance_km": 150.5,
+  "score": 850,
+  "is_final_round": false,
+  "total_score": 850
+}
+```
+
+**Response Fields:**
+
+| Field                | Type    | Description                                      |
+|----------------------|---------|--------------------------------------------------|
+| `location_id`        | string  | The actual location ID for this round.           |
+| `city`               | string  | The actual city name.                            |
+| `country`            | string  | The country of the actual city.                  |
+| `distance_km`        | float   | Distance in kilometers between guess and actual location. |
+| `score`              | integer | Points earned for this round (0-1000).           |
+| `is_final_round`     | boolean | Whether this is the final (5th) round.           |
+| `total_score`        | integer | Cumulative score across all rounds.              |
+
+**Response: 400 Bad Request**
+
+Returned when the game session is invalid or not found.
+
+```json
+{
+  "detail": "Game not found"
+}
+```
+
+---
+
+### GET /api/game/{game_id}/next
+
+Fetches the next round's headline. Should be called after the player views a round result.
+
+**Request:**
+
+```
+GET /api/game/{game_id}/next
+```
+
+**Path Parameters:**
+
+| Parameter | Type   | Required | Description                                    |
+|-----------|--------|----------|------------------------------------------------|
+| `game_id` | string | Yes      | The game session ID from `/api/game/start`.    |
+
+**Response: 200 OK**
+
+```json
+{
+  "round_number": 2,
+  "headline": "Major Scientific Discovery Announced by Research Team"
+}
+```
+
+**Response Fields:**
+
+| Field          | Type    | Description                                      |
+|----------------|---------|--------------------------------------------------|
+| `round_number` | integer | The next round number (2-5).                     |
+| `headline`     | string  | The news headline for this round.                |
+
+**Response: 404 Not Found**
+
+Returned when the game session is not found or expired.
+
+```json
+{
+  "detail": "Game not found"
+}
+```
+
+---
+
+## News/Location Endpoints
 
 ### GET /api/news/{location_id}
 

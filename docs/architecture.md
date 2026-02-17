@@ -4,7 +4,7 @@ This document describes the system design, component architecture, and data flow
 
 ## System Overview
 
-Global News Map is a two-tier web application consisting of a React single-page application (frontend) and a Python FastAPI service (backend). The frontend renders an interactive map and makes API calls to the backend, which aggregates news data from external sources and returns it to the client.
+Global News Guessing Game is a two-tier web application consisting of a React single-page application (frontend) and a Python FastAPI service (backend). The frontend implements a news guessing game where players read headlines and must guess their source city by clicking on an interactive map. The backend manages game sessions, provides headlines for gameplay, and validates player guesses against actual news locations.
 
 ```
 +-------------------+         +-------------------+         +-------------------+
@@ -18,7 +18,13 @@ Global News Map is a two-tier web application consisting of a React single-page 
                               |                   +-------->+                   |
                               |                   |         |   Google News RSS |
                               |                   |<--------+   (Fallback)      |
-                              +--------+----------+         +-------------------+
+                              |                   |         +-------------------+
+                              |                   |
+                              |   Game Sessions   |
+                              |   (in-memory or   |
+                              |    persistent)    |
+                              |                   |
+                              +--------+----------+
                                        |
                                        v
                               +-------------------+
@@ -29,29 +35,49 @@ Global News Map is a two-tier web application consisting of a React single-page 
                               +-------------------+
 ```
 
-## Data Flow
+## Game Modes
 
-A complete request cycle follows these steps:
+The application supports two game flows:
 
-1. **User interaction:** The user clicks a city marker on the interactive map in the React frontend.
+### Game Mode (Primary)
+Players participate in a guessing game where:
+1. A game session is created with 5 rounds
+2. Each round presents a headline from a random city
+3. Players click the map to place their guess
+4. After submission, distance and score are calculated
+5. Players advance through 5 rounds accumulating points
+6. Final score is calculated and displayed
 
-2. **Frontend API call:** The `useNews` hook calls `fetch('/api/news/{location_id}')`. During development, the Vite proxy forwards this request from port 5173 to the backend on port 8000. In production, a reverse proxy (such as Nginx) handles this routing.
+### Map Exploration (Legacy)
+Users can view news from cities by hovering over markers (if implemented as a legacy feature).
 
-3. **Route handling:** The FastAPI router in `api/routes.py` receives the request and resolves the `location_id` against the loaded location data.
+## Data Flow - Game Session
 
-4. **Location validation:** The `get_location_by_id()` function in `services/locations.py` looks up the location. If not found, the API returns a 404 error.
+A game session flow follows these steps:
 
-5. **Cache check:** The `get_headline()` function in `services/news.py` checks the in-memory cache for an existing headline for this `location_id`. If a valid (non-expired) cached entry exists, it is returned immediately, skipping steps 6 and 7.
+1. **Game initiation:** The user clicks "Start Game" in the React frontend.
 
-6. **Primary source -- NewsAPI:** If no cached headline exists, the service calls the NewsAPI `/v2/top-headlines` endpoint with the city name as a query parameter. If a valid API key is configured and results are returned, the first article is used.
+2. **Session creation:** The `useGame` hook calls `POST /api/game/start`. The backend creates a new game session and selects the first random headline.
 
-7. **Fallback source -- Google News RSS:** If NewsAPI fails (no API key, rate limit, network error, or no results), the service fetches the Google News RSS feed with a search query of `"{city} {country}"`. The first entry from the parsed feed is used.
+3. **Headline presentation:** The backend returns the headline text (without location info) and a unique `game_id`. The frontend displays the headline and interactive map.
 
-8. **Cache storage:** If a headline was successfully retrieved from either source, it is stored in the in-memory cache with the current timestamp. The cache entry expires after the configured TTL (default: 30 minutes).
+4. **Player guesses:** The player clicks on the map to place their guess (latitude/longitude).
 
-9. **Response:** The backend returns a JSON response containing the `location_id`, `city`, `country`, and `headline` object. If neither source returned a result, the API returns a 503 error.
+5. **Guess submission:** The `useGame` hook calls `POST /api/game/{game_id}/guess` with the coordinates.
 
-10. **Frontend rendering:** The `useNews` hook updates its state, causing the `HeadlineCard` component to render with the headline title, source, publication time, and a link to the full article.
+6. **Distance calculation:** The backend:
+   - Retrieves the game session and current round's actual location
+   - Calculates distance from guess coordinates to actual city coordinates
+   - Converts distance to a score (1000 points at 0 km, scaling down to 0 points at 20,000+ km)
+   - Returns location data, distance, and score to the frontend
+
+7. **Result display:** The frontend displays the actual location, distance, and score for the round.
+
+8. **Next round:** The player clicks "Next Round" or the application determines if it's the final round.
+
+9. **Round progression:** If not the final round, `GET /api/game/{game_id}/next` fetches the next headline.
+
+10. **Game completion:** After 5 rounds, the final score is displayed with game summary.
 
 ## Backend Architecture
 
@@ -63,12 +89,15 @@ service/
     main.py              # Application entry point and middleware configuration
     config.py            # Settings management with pydantic-settings
     api/
-      routes.py          # API endpoint definitions
+      routes.py          # API endpoint definitions (/api/game/*, /api/locations)
     models/
       schemas.py         # Pydantic models for request/response validation
     services/
       news.py            # News fetching, fallback logic, and caching
       locations.py       # Location data loading and lookup
+      game.py            # Game session management and scoring logic
+    utils/
+      distance.py        # Distance calculation utilities
 ```
 
 ### Application Startup
@@ -106,11 +135,14 @@ This approach is simple and effective for single-worker deployments. In multi-wo
 
 ### Data Models
 
-Four Pydantic models are defined in `models/schemas.py`:
+Pydantic models are defined in `models/schemas.py`:
 
 - **Location** -- Represents a city with `location_id`, `city`, `country`, `lat`, `lng`, and `timezone` fields.
 - **Headline** -- Represents a news headline with `title`, `source`, `published_at`, `url`, and `cached_at` fields.
-- **NewsResponse** -- The API response for the news endpoint, combining location metadata with a `Headline` object.
+- **GameStartResponse** -- Response when starting a game with `game_id`, `current_round_number`, and `headline`.
+- **GuessRequest** -- Request body with player's `lat` and `lng` coordinates.
+- **GuessResponse** -- Response after guess submission with `location_id`, `city`, `country`, `distance_km`, `score`, `is_final_round`, `total_score`.
+- **NextRoundResponse** -- Response for next round with `round_number` and `headline`.
 - **HealthResponse** -- The API response for the health endpoint with `status` and `version` fields.
 
 ## Frontend Architecture
@@ -121,54 +153,73 @@ Four Pydantic models are defined in `models/schemas.py`:
 ui/
   src/
     main.jsx                    # React DOM entry point
-    App.jsx                     # Root component, state orchestration
+    App.jsx                     # Root component, game state orchestration
     App.css                     # Application-level styles with theme CSS variables
     contexts/
       ThemeContext.jsx          # Theme provider for dark/light mode
     components/
-      WorldMap.jsx              # Map container with tile layer and markers
+      WorldMap.jsx              # Map container with tile layer and markers/guess pins
       WorldMap.css              # Map styling
-      LocationMarker.jsx        # Individual city marker component
-      HeadlineCard.jsx          # News headline display card
-      HeadlineCard.css          # Headline card styling
-      LoadingState.jsx          # Loading spinner/indicator
-      LoadingState.css          # Loading state styling
+      LocationMarker.jsx        # Individual city marker component (blue pins)
       ThemeToggle.jsx           # Theme toggle button component
       ThemeToggle.css           # Theme toggle styling
+      game/
+        GameStartScreen.jsx      # Welcome screen with rules and start button
+        GameStartScreen.css      # Start screen styling
+        GameHUD.jsx             # In-game HUD (score display, hint)
+        GameHUD.css             # HUD styling
+        HeadlineBox.jsx         # Displays current headline with submit button
+        HeadlineBox.css         # Headline box styling
+        RoundResultModal.jsx    # Round result with distance and score
+        RoundResultModal.css    # Result modal styling
+        GameResultsScreen.jsx   # Final game summary and score
+        GameResultsScreen.css   # Results screen styling
+        ScoreDisplay.jsx        # Score counter component
+        ScoreDisplay.css        # Score display styling
     hooks/
-      useLocations.js           # Hook for fetching and managing location data
-      useNews.js                # Hook for fetching and managing headline data
+      useGame.js                # Hook for game state, API calls, and session management
 ```
 
 ### Component Hierarchy
 
 ```
 App
-  +-- WorldMap
-  |     +-- MapContainer (react-leaflet)
-  |           +-- TileLayer (OpenStreetMap)
-  |           +-- LocationMarker (one per city)
-  +-- HeadlineCard (conditional)
-  +-- LoadingState (conditional)
+  +-- header
+  |     +-- title
+  |     +-- ScoreDisplay (when active/round_complete)
+  |     +-- ThemeToggle
+  +-- main
+      +-- GameStartScreen (state: idle)
+      +-- game-container (state: active/round_complete)
+      |     +-- WorldMap
+      |           +-- MapContainer (react-leaflet)
+      |                 +-- TileLayer (OpenStreetMap)
+      |                 +-- Guess Pin (player's click)
+      |     +-- HeadlineBox
+      +-- RoundResultModal (state: round_complete)
+      +-- GameResultsScreen (state: game_complete)
+      +-- error-message (if error exists)
 ```
 
 ### Component Responsibilities
 
-**App** (`App.jsx`): The root component that orchestrates the application. It initializes both the `useLocations` and `useNews` hooks, passes location data to `WorldMap`, and conditionally renders `HeadlineCard`, `LoadingState`, or placeholder text in the sidebar based on the current state.
+**App** (`App.jsx`): The root component orchestrating game flow. Uses the `useGame` hook to manage game state. Renders different screens based on `gameState`: idle (start screen), active (map + headline), round_complete (result modal), game_complete (final results). Includes header with score display and theme toggle.
 
-**WorldMap** (`WorldMap.jsx`): Wraps the react-leaflet `MapContainer` and `TileLayer` components. It renders a `LocationMarker` for each city in the locations array. The map is centered at coordinates (20, 0) with an initial zoom of 2, minimum zoom of 2, and maximum zoom of 10. Map tiles are sourced from OpenStreetMap.
+**WorldMap** (`WorldMap.jsx`): Wraps react-leaflet `MapContainer` and `TileLayer`. When in game mode, renders the player's guess pin at clicked coordinates and handles map clicks for guess placement. Displays actual city markers for reference. The map is centered at (20, 0) with zoom 2 initially.
 
-**LocationMarker** (`LocationMarker.jsx`): Renders a single Leaflet marker for a city at its latitude and longitude. Handles click events and invokes the `onLocationClick` callback passed down from `App`.
+**HeadlineBox** (`game/HeadlineBox.jsx`): Displays the current round's headline and provides the "Submit Guess" button. Becomes enabled only after player places a guess pin.
 
-**HeadlineCard** (`HeadlineCard.jsx`): Displays the fetched headline in a card layout. Shows the city name, country, headline title, source name, formatted publication time, and a link to the full article. Includes a close button to dismiss the card.
+**RoundResultModal** (`game/RoundResultModal.jsx`): Modal overlay showing the result of a guess with: actual location, distance in km, points earned, and "Next Round" button. Different layout for final round.
 
-**LoadingState** (`LoadingState.jsx`): A visual loading indicator shown while location data or news headlines are being fetched.
+**GameStartScreen** (`game/GameStartScreen.jsx`): Welcome screen with game title, rules explanation, scoring table, and "Start Game" button.
+
+**GameResultsScreen** (`game/GameResultsScreen.jsx`): Final screen showing total score, average accuracy, and "Play Again" button.
+
+**ScoreDisplay** (`game/ScoreDisplay.jsx`): Compact component showing current round number and total score.
 
 ### Custom Hooks
 
-**useLocations** (`hooks/useLocations.js`): Fetches the list of locations from `/api/locations` on component mount. Returns `{ locations, loading }`. The fetch runs once via a `useEffect` with an empty dependency array.
-
-**useNews** (`hooks/useNews.js`): Manages headline fetching and state. Provides `fetchNews(locationId)` to trigger a fetch, `clearHeadline()` to reset the state, and returns `{ headline, loading, error, fetchNews, clearHeadline }`. Uses `useCallback` to memoize both functions.
+**useGame** (`hooks/useGame.js`): Manages all game state and API interactions. State includes: `gameId`, `currentRound`, `roundNumber`, `guessPin`, `roundResult`, `gameState`, `totalScore`, `loading`, `error`. Methods include: `startGame()`, `placeGuess(lat, lng)`, `submitGuess()`, `nextRound()`, `resetGame()`. Handles game session lifecycle and error scenarios (expired sessions, network errors).
 
 ### Theme System
 

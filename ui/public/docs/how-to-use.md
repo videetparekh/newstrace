@@ -1,10 +1,67 @@
-# User Guide
+# Global News Guessing Game - How to Play
 
-Global News Map is an interactive web application that displays the latest news headlines from 20 major cities around the world. This guide explains how to navigate and use the application.
+Welcome to Global News Guessing Game! This guide explains how to play and use all the features of the application.
 
 ## Overview
 
-When you open the application, you will see an interactive world map powered by OpenStreetMap. The map displays markers for 20 cities across six continents. Hovering over any marker fetches and displays the top 3 breaking headlines for that city in a popup popup that appears on the map.
+Global News Guessing Game is an interactive geography quiz where you test your knowledge by guessing which city a news headline comes from. The game features real headlines from 20 major cities around the world, and you play 5 rounds trying to maximize your score.
+
+## Getting Started
+
+1. When you open the application, you'll see the welcome screen with game rules and scoring information.
+2. Click the "Start Game" button to begin playing.
+3. The first headline will load along with an interactive world map.
+
+## How to Play
+
+### Reading the Headline
+
+Each round presents a news headline. Read it carefully—it may contain location clues such as:
+
+- City or country names
+- Language hints
+- Regional context
+- Time-sensitive information
+
+### Making Your Guess
+
+1. Click on the map where you think the news headline is from.
+2. A blue marker pin will appear at your click location.
+3. You can click multiple times to move your guess pin to a different location.
+4. Zoom in and out using the map controls or scroll wheel to get a better view of the region you're guessing.
+
+### Submitting Your Guess
+
+1. Once you've placed your guess, click the "Submit Guess" button.
+2. The application will show you the actual location and your accuracy.
+3. You'll see:
+   - The distance between your guess and the correct city
+   - Your score for this round (up to 1,000 points)
+   - Your cumulative total score
+
+### Proceeding to the Next Round
+
+1. After reviewing your results, click "Next Round" to move to the next headline.
+2. Repeat the guessing process for all 5 rounds.
+3. After the final round, you'll see your game summary with your total score.
+
+### Playing Again
+
+Click "Play Again" on the final results screen to start a new game.
+
+## Scoring System
+
+Your score is based on how accurately you guessed the location:
+
+- **Perfect guess (0 km away):** 1,000 points
+- **Excellent guess (5,000 km away):** ~750 points
+- **Good guess (10,000 km away):** 500 points
+- **Fair guess (15,000 km away):** ~250 points
+- **Far away (20,000+ km away):** 0 points
+
+**Maximum possible score:** 5,000 points (1,000 points × 5 rounds)
+
+The closer your guess to the correct city, the more points you earn. The scoring uses a distance-based formula that rewards accuracy.
 
 ## Navigating the Map
 
@@ -12,48 +69,22 @@ When you open the application, you will see an interactive world map powered by 
 
 - **Scroll wheel:** Scroll up to zoom in, scroll down to zoom out.
 - **Zoom controls:** Use the `+` and `-` buttons in the top-left corner of the map.
-- **Pinch gesture (touchscreens):** Pinch to zoom in and out on mobile and tablet devices.
+- **Pinch gesture (mobile/tablet):** Pinch to zoom in and out.
 
 The map supports zoom levels from 2 (full world view) to 10 (city-level detail).
 
 ### Panning
 
-- **Click and drag:** Click anywhere on the map and drag to move around.
-- **Touch and drag (touchscreens):** Touch and slide your finger to pan the map on mobile devices.
+- **Click and drag:** Click anywhere on the map (except on existing markers) and drag to move around.
+- **Touch and drag (mobile/tablet):** Touch and slide your finger to pan the map.
 
 ### Default View
 
-The map loads centered at coordinates (20, 0), which provides a balanced view of all continents. All 20 city markers are visible at the default zoom level.
-
-## Hovering Over City Markers
-
-Each city on the map is represented by a marker pin. To view news for a city:
-
-1. Locate the city marker on the map.
-2. Hover your mouse over the marker (or tap and hold on touchscreens).
-3. The application fetches the top 3 breaking headlines from the backend service.
-4. A loading indicator appears briefly while the headlines are retrieved.
-5. A popup appears showing the top headlines for that city.
-
-## Reading Headlines
-
-When headlines are loaded, the popup displays the following information for each of the top 3 headlines:
-
-- **City and country:** The name of the selected city and its country, shown at the top of the popup.
-- **Headline ranking:** A numbered indicator (1, 2, or 3) showing the headline's position in the top headlines list.
-- **Headline title:** The title of the news article.
-- **Source:** The name of the news outlet that published the article (e.g., BBC News, Reuters).
-- **Read more link:** A clickable link that opens the original article in a new browser tab.
-
-To dismiss the popup, click the close button (the "x" icon) in the top-right corner of the popup, or move your mouse away from the marker.
-
-## Switching Between Cities
-
-You can hover over a different city marker at any time. The popup will update with the new headlines, replacing the previous ones. There is no need to close the current popup first.
+The map starts centered at coordinates (20, 0), providing a balanced view of all continents.
 
 ## Supported Cities
 
-The application covers the following 20 cities:
+The game includes these 20 cities:
 
 | City          | Country              |
 |---------------|----------------------|
@@ -78,35 +109,38 @@ The application covers the following 20 cities:
 | Nairobi       | Kenya                |
 | Istanbul      | Turkey               |
 
-## Mobile Usage
-
-The application is usable on mobile devices and tablets. On smaller screens:
-
-- The map occupies the full viewport width.
-- Tap and hold on a city marker to view its top 3 headlines in a popup.
-- Use standard touch gestures (pinch to zoom, drag to pan) to navigate the map.
-- The "Read more" link opens the source article in your device's default browser.
-- Close the popup by tapping the "x" button or tapping elsewhere on the map.
-
-## Error States
-
-If something goes wrong when fetching a headline, an error message will appear in the sidebar instead of the headline card. Common reasons include:
-
-- **"News unavailable for this location":** The news sources did not return any results for the selected city. This can happen during periods of low news activity for a particular region.
-- **"Failed to fetch news":** A network error occurred. Check your internet connection and try again.
-
-In both cases, you can try clicking the same city again or selecting a different city.
-
 ## Theme Toggle
 
-The application supports both light and dark themes. To switch between themes:
+The application supports light and dark themes:
 
-1. Look for the theme toggle button in the top-right corner of the application header (next to the "How to Use" button).
-2. Click the toggle button to switch between light mode (☀️ sun icon) and dark mode (🌙 moon icon).
-3. Your theme preference is automatically saved and will be remembered the next time you visit the application.
+1. Click the theme toggle button in the top-right corner of the header.
+2. In light mode, the button shows a 🌙 moon icon.
+3. In dark mode, the button shows a ☀️ sun icon.
 
-The theme affects the entire application interface, including the header, sidebar, headline cards, and this help modal.
+Your theme preference is automatically saved and will be remembered when you return.
 
-## Caching
+## Tips for Better Guessing
 
-Headlines are cached by the backend for 30 minutes. If you click the same city multiple times within that window, you will see the same headline. After 30 minutes, a fresh headline will be fetched from the news sources.
+- **Look for location clues:** Headlines often mention place names, languages, or regional context.
+- **Use your geography knowledge:** Consider which major cities are news hubs.
+- **Zoom in strategically:** Use the map zoom to explore specific regions as you think.
+- **Consider global significance:** Some stories have worldwide impact, but many originate from these 20 major cities.
+- **Regional patterns:** Think about regional news distribution and which cities typically report certain types of news.
+
+## Troubleshooting
+
+### Game Session Expired
+
+If you see "Game session expired," your game session timed out. Click "Play Again" to start a new game.
+
+### Network Errors
+
+If you encounter network errors:
+
+1. Check your internet connection.
+2. Try starting a new game.
+3. If the problem persists, refresh the page and try again.
+
+### Can't Place a Guess
+
+Make sure you're clicking on the map area (not on UI elements). The blue pin should appear where you click.
