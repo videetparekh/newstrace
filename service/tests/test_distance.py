@@ -34,9 +34,9 @@ def test_score_perfect_guess():
 
 
 def test_score_halfway():
-    """10,000 km should score 500 points."""
+    """10,000 km should score ~620 points with logarithmic decay."""
     score = calculate_score(10000)
-    assert score == 500
+    assert 610 < score < 630
 
 
 def test_score_maximum_distance():

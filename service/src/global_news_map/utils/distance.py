@@ -38,10 +38,13 @@ def calculate_score(distance_km: float) -> int:
     """
     Calculate score based on distance from guess to actual location.
 
-    Scoring formula: max(0, 1000 - (distance_km / 20000 * 1000))
+    Scoring formula: 1000 * ln(1 + (1 - d/D) * (e - 1))
     - Perfect guess (0 km): 1000 points
-    - 10,000 km away: 500 points
+    - 10,000 km away: ~620 points
     - 20,000+ km away: 0 points
+
+    The logarithmic curve keeps scores high through medium distances and
+    collapses steeply only near maximum distance.
 
     Args:
         distance_km: Distance in kilometers
@@ -52,5 +55,7 @@ def calculate_score(distance_km: float) -> int:
     if distance_km < 0:
         distance_km = 0
 
-    score = 1000 - (distance_km / 20000 * 1000)
-    return max(0, int(score))
+    max_distance = 20000.0
+    t = max(0.0, 1.0 - distance_km / max_distance)
+    score = 1000.0 * math.log(1.0 + t * (math.e - 1.0))
+    return int(score)
