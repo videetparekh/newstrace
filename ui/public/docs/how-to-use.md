@@ -51,17 +51,17 @@ Click "Play Again" on the final results screen to start a new game.
 
 ## Scoring System
 
-Your score is based on how accurately you guessed the location:
+Your score is based on how accurately you guessed the location using a logarithmic formula:
 
 - **Perfect guess (0 km away):** 1,000 points
-- **Excellent guess (5,000 km away):** ~750 points
-- **Good guess (10,000 km away):** 500 points
-- **Fair guess (15,000 km away):** ~250 points
+- **Excellent guess (5,000 km away):** ~850 points
+- **Good guess (10,000 km away):** ~620 points
+- **Fair guess (15,000 km away):** ~200 points
 - **Far away (20,000+ km away):** 0 points
 
 **Maximum possible score:** 5,000 points (1,000 points × 5 rounds)
 
-The closer your guess to the correct city, the more points you earn. The scoring uses a distance-based formula that rewards accuracy.
+The logarithmic curve keeps scores high through medium distances and collapses steeply only near maximum distance. This rewards accuracy while being forgiving with guesses that are reasonably close.
 
 ## Navigating the Map
 

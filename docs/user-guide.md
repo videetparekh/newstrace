@@ -37,14 +37,14 @@ After submitting your guess:
 
 ## Scoring System
 
-Points are awarded based on accuracy:
+Points are awarded based on accuracy using a logarithmic formula:
 
 - **Perfect guess (0 km away):** 1,000 points
-- **10,000 km away:** 500 points
+- **10,000 km away:** ~620 points
 - **20,000+ km away:** 0 points
 - **Maximum possible score:** 5,000 points (1,000 per round × 5 rounds)
 
-Closer guesses earn more points. The scoring formula rewards geographic accuracy.
+The logarithmic curve keeps scores high through medium distances and collapses steeply only near maximum distance. This rewards accuracy while being forgiving with guesses that are reasonably close.
 
 ## Navigating the Map
 
