@@ -9,7 +9,9 @@ if git diff --quiet "$MERGE_BASE..HEAD" -- 'src/' 'ui/'; then
   exit 0
 fi
 
-claude -p "Update user-facing documentation based on code and UI changes"
+claude -p "Update user-facing documentation based on code and UI changes" \
+       --allowedTools "Bash(git *),Read,Edit" \
+       --model haiku
 
 echo ""
 echo "Review changes:"

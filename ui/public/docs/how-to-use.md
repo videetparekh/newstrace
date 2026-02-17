@@ -4,7 +4,7 @@ Global News Map is an interactive web application that displays the latest news 
 
 ## Overview
 
-When you open the application, you will see an interactive world map powered by OpenStreetMap. The map displays markers for 20 cities across six continents. Clicking any marker fetches and displays the latest news headline for that city in a sidebar panel.
+When you open the application, you will see an interactive world map powered by OpenStreetMap. The map displays markers for 20 cities across six continents. Hovering over any marker fetches and displays the top 3 breaking headlines for that city in a popup popup that appears on the map.
 
 ## Navigating the Map
 
@@ -25,31 +25,31 @@ The map supports zoom levels from 2 (full world view) to 10 (city-level detail).
 
 The map loads centered at coordinates (20, 0), which provides a balanced view of all continents. All 20 city markers are visible at the default zoom level.
 
-## Clicking City Markers
+## Hovering Over City Markers
 
 Each city on the map is represented by a marker pin. To view news for a city:
 
 1. Locate the city marker on the map.
-2. Click (or tap) the marker.
-3. The application fetches the latest headline from the backend service.
-4. A loading indicator appears briefly while the headline is retrieved.
-5. The headline appears in the sidebar panel to the right of the map.
+2. Hover your mouse over the marker (or tap and hold on touchscreens).
+3. The application fetches the top 3 breaking headlines from the backend service.
+4. A loading indicator appears briefly while the headlines are retrieved.
+5. A popup appears showing the top headlines for that city.
 
 ## Reading Headlines
 
-When a headline is loaded, the sidebar displays the following information:
+When headlines are loaded, the popup displays the following information for each of the top 3 headlines:
 
-- **City and country:** The name of the selected city and its country, shown at the top of the card.
-- **Headline title:** The title of the most recent news article for that city.
+- **City and country:** The name of the selected city and its country, shown at the top of the popup.
+- **Headline ranking:** A numbered indicator (1, 2, or 3) showing the headline's position in the top headlines list.
+- **Headline title:** The title of the news article.
 - **Source:** The name of the news outlet that published the article (e.g., BBC News, Reuters).
-- **Published time:** The date and time the article was published, formatted in your local timezone.
-- **Read full article link:** A clickable link that opens the original article in a new browser tab.
+- **Read more link:** A clickable link that opens the original article in a new browser tab.
 
-To dismiss the headline card, click the close button (the "x" icon) in the top-right corner of the card.
+To dismiss the popup, click the close button (the "x" icon) in the top-right corner of the popup, or move your mouse away from the marker.
 
 ## Switching Between Cities
 
-You can click a different city marker at any time. The sidebar will update with the new headline, replacing the previous one. There is no need to close the current headline first.
+You can hover over a different city marker at any time. The popup will update with the new headlines, replacing the previous ones. There is no need to close the current popup first.
 
 ## Supported Cities
 
@@ -83,10 +83,10 @@ The application covers the following 20 cities:
 The application is usable on mobile devices and tablets. On smaller screens:
 
 - The map occupies the full viewport width.
-- The headline sidebar appears below the map or as an overlay, depending on screen size.
-- Tap a city marker to view its headline, just as you would click on desktop.
+- Tap and hold on a city marker to view its top 3 headlines in a popup.
 - Use standard touch gestures (pinch to zoom, drag to pan) to navigate the map.
-- The "Read full article" link opens the source article in your device's default browser.
+- The "Read more" link opens the source article in your device's default browser.
+- Close the popup by tapping the "x" button or tapping elsewhere on the map.
 
 ## Error States
 
