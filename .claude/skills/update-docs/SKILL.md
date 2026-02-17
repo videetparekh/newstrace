@@ -3,21 +3,20 @@ name: update-docs
 description: Update user-facing documentation based on code and UI changes
 context: fork
 agent: Explore
-allowed-tools: Bash(git *), Read, Edit
+allowed-tools: Read, Edit
 ---
 
 ## Context
-- Merge base: !`git merge-base HEAD main`
-- Code changes: Use the merge base from above to run `git diff <merge-base>..HEAD -- src/`
-- UI changes: Use the merge base from above to run `git diff <merge-base>..HEAD -- ui/`
+- Code changes:
+!`git diff $(git merge-base HEAD main)..HEAD -- src/`
+- UI changes:
+!`git diff $(git merge-base HEAD main)..HEAD -- ui/`
 - Documentation: `docs/` and `ui/public/docs/` directories
 
 ## Your task
-1. Get the merge base commit hash
-2. View code changes: `git diff <merge-base>..HEAD -- src/`
-3. View UI changes: `git diff <merge-base>..HEAD -- ui/`
-4. Identify which docs are affected
-5. Update those docs
+1. Review the code and UI changes above
+2. Identify which docs are affected
+3. Update those docs
 
 ### Identification criteria
 - API changes → `docs/` (getting started, API reference)
