@@ -5,7 +5,10 @@
     "country": "United States",
     "lat": 40.7128,
     "lng": -74.006,
-    "timezone": "America/New_York"
+    "timezone": "America/New_York",
+    "search_term": "New York USA",
+    "country_code": "US",
+    "language": "en"
   },
   {
     "location_id": "london",
@@ -13,7 +16,10 @@
     "country": "United Kingdom",
     "lat": 51.5074,
     "lng": -0.1278,
-    "timezone": "Europe/London"
+    "timezone": "Europe/London",
+    "search_term": "London UK",
+    "country_code": "GB",
+    "language": "en"
   },
   {
     "location_id": "tokyo",
@@ -21,7 +27,10 @@
     "country": "Japan",
     "lat": 35.6762,
     "lng": 139.6503,
-    "timezone": "Asia/Tokyo"
+    "timezone": "Asia/Tokyo",
+    "search_term": "Tokyo Japan",
+    "country_code": "JP",
+    "language": "en"
   },
   {
     "location_id": "paris",
@@ -29,7 +38,10 @@
     "country": "France",
     "lat": 48.8566,
     "lng": 2.3522,
-    "timezone": "Europe/Paris"
+    "timezone": "Europe/Paris",
+    "search_term": "Paris France",
+    "country_code": "FR",
+    "language": "en"
   },
   {
     "location_id": "sydney",
@@ -37,7 +49,10 @@
     "country": "Australia",
     "lat": -33.8688,
     "lng": 151.2093,
-    "timezone": "Australia/Sydney"
+    "timezone": "Australia/Sydney",
+    "search_term": "Sydney Australia",
+    "country_code": "AU",
+    "language": "en"
   },
   {
     "location_id": "mumbai",
@@ -45,15 +60,21 @@
     "country": "India",
     "lat": 19.076,
     "lng": 72.8777,
-    "timezone": "Asia/Kolkata"
+    "timezone": "Asia/Kolkata",
+    "search_term": "Mumbai India",
+    "country_code": "IN",
+    "language": "en"
   },
   {
     "location_id": "sao-paulo",
-    "city": "S\u00e3o Paulo",
+    "city": "São Paulo",
     "country": "Brazil",
     "lat": -23.5505,
     "lng": -46.6333,
-    "timezone": "America/Sao_Paulo"
+    "timezone": "America/Sao_Paulo",
+    "search_term": "São Paulo Brazil",
+    "country_code": "BR",
+    "language": "en"
   },
   {
     "location_id": "cairo",
@@ -61,7 +82,10 @@
     "country": "Egypt",
     "lat": 30.0444,
     "lng": 31.2357,
-    "timezone": "Africa/Cairo"
+    "timezone": "Africa/Cairo",
+    "search_term": "Cairo Egypt",
+    "country_code": "EG",
+    "language": "en"
   },
   {
     "location_id": "moscow",
@@ -69,7 +93,10 @@
     "country": "Russia",
     "lat": 55.7558,
     "lng": 37.6173,
-    "timezone": "Europe/Moscow"
+    "timezone": "Europe/Moscow",
+    "search_term": "Moscow Russia",
+    "country_code": "RU",
+    "language": "en"
   },
   {
     "location_id": "beijing",
@@ -77,7 +104,10 @@
     "country": "China",
     "lat": 39.9042,
     "lng": 116.4074,
-    "timezone": "Asia/Shanghai"
+    "timezone": "Asia/Shanghai",
+    "search_term": "Beijing China",
+    "country_code": "CN",
+    "language": "en"
   },
   {
     "location_id": "dubai",
@@ -85,7 +115,10 @@
     "country": "United Arab Emirates",
     "lat": 25.2048,
     "lng": 55.2708,
-    "timezone": "Asia/Dubai"
+    "timezone": "Asia/Dubai",
+    "search_term": "Dubai UAE",
+    "country_code": "AE",
+    "language": "en"
   },
   {
     "location_id": "singapore",
@@ -93,7 +126,10 @@
     "country": "Singapore",
     "lat": 1.3521,
     "lng": 103.8198,
-    "timezone": "Asia/Singapore"
+    "timezone": "Asia/Singapore",
+    "search_term": "Singapore",
+    "country_code": "SG",
+    "language": "en"
   },
   {
     "location_id": "toronto",
@@ -101,7 +137,10 @@
     "country": "Canada",
     "lat": 43.6532,
     "lng": -79.3832,
-    "timezone": "America/Toronto"
+    "timezone": "America/Toronto",
+    "search_term": "Toronto Canada",
+    "country_code": "CA",
+    "language": "en"
   },
   {
     "location_id": "berlin",
@@ -109,7 +148,10 @@
     "country": "Germany",
     "lat": 52.52,
     "lng": 13.405,
-    "timezone": "Europe/Berlin"
+    "timezone": "Europe/Berlin",
+    "search_term": "Berlin Germany",
+    "country_code": "DE",
+    "language": "en"
   },
   {
     "location_id": "lagos",
@@ -117,7 +159,10 @@
     "country": "Nigeria",
     "lat": 6.5244,
     "lng": 3.3792,
-    "timezone": "Africa/Lagos"
+    "timezone": "Africa/Lagos",
+    "search_term": "Lagos Nigeria",
+    "country_code": "NG",
+    "language": "en"
   },
   {
     "location_id": "mexico-city",
@@ -125,7 +170,10 @@
     "country": "Mexico",
     "lat": 19.4326,
     "lng": -99.1332,
-    "timezone": "America/Mexico_City"
+    "timezone": "America/Mexico_City",
+    "search_term": "Mexico City",
+    "country_code": "MX",
+    "language": "en"
   },
   {
     "location_id": "seoul",
@@ -133,7 +181,10 @@
     "country": "South Korea",
     "lat": 37.5665,
     "lng": 126.978,
-    "timezone": "Asia/Seoul"
+    "timezone": "Asia/Seoul",
+    "search_term": "Seoul Korea",
+    "country_code": "KR",
+    "language": "en"
   },
   {
     "location_id": "buenos-aires",
@@ -141,7 +192,10 @@
     "country": "Argentina",
     "lat": -34.6037,
     "lng": -58.3816,
-    "timezone": "America/Argentina/Buenos_Aires"
+    "timezone": "America/Argentina/Buenos_Aires",
+    "search_term": "Buenos Aires Argentina",
+    "country_code": "AR",
+    "language": "en"
   },
   {
     "location_id": "nairobi",
@@ -149,7 +203,10 @@
     "country": "Kenya",
     "lat": -1.2921,
     "lng": 36.8219,
-    "timezone": "Africa/Nairobi"
+    "timezone": "Africa/Nairobi",
+    "search_term": "Nairobi Kenya",
+    "country_code": "KE",
+    "language": "en"
   },
   {
     "location_id": "istanbul",
@@ -157,6 +214,1087 @@
     "country": "Turkey",
     "lat": 41.0082,
     "lng": 28.9784,
-    "timezone": "Europe/Istanbul"
+    "timezone": "Europe/Istanbul",
+    "search_term": "Istanbul Turkey",
+    "country_code": "TR",
+    "language": "en"
+  },
+  {
+    "location_id": "los-angeles",
+    "city": "Los Angeles",
+    "country": "United States",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "timezone": "America/Los_Angeles",
+    "search_term": "Los Angeles USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "chicago",
+    "city": "Chicago",
+    "country": "United States",
+    "lat": 41.8781,
+    "lng": -87.6298,
+    "timezone": "America/Chicago",
+    "search_term": "Chicago USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "san-francisco",
+    "city": "San Francisco",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "timezone": "America/Los_Angeles",
+    "search_term": "San Francisco USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "boston",
+    "city": "Boston",
+    "country": "United States",
+    "lat": 42.3601,
+    "lng": -71.0589,
+    "timezone": "America/New_York",
+    "search_term": "Boston USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "washington-dc",
+    "city": "Washington DC",
+    "country": "United States",
+    "lat": 38.9072,
+    "lng": -77.0369,
+    "timezone": "America/New_York",
+    "search_term": "Washington DC USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "vancouver",
+    "city": "Vancouver",
+    "country": "Canada",
+    "lat": 49.2827,
+    "lng": -123.1207,
+    "timezone": "America/Vancouver",
+    "search_term": "Vancouver Canada",
+    "country_code": "CA",
+    "language": "en"
+  },
+  {
+    "location_id": "seattle",
+    "city": "Seattle",
+    "country": "United States",
+    "lat": 47.6062,
+    "lng": -122.3321,
+    "timezone": "America/Los_Angeles",
+    "search_term": "Seattle USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "denver",
+    "city": "Denver",
+    "country": "United States",
+    "lat": 39.7392,
+    "lng": -104.9903,
+    "timezone": "America/Denver",
+    "search_term": "Denver USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "atlanta",
+    "city": "Atlanta",
+    "country": "United States",
+    "lat": 33.7490,
+    "lng": -84.3880,
+    "timezone": "America/New_York",
+    "search_term": "Atlanta USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "miami",
+    "city": "Miami",
+    "country": "United States",
+    "lat": 25.7617,
+    "lng": -80.1918,
+    "timezone": "America/New_York",
+    "search_term": "Miami USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "madrid",
+    "city": "Madrid",
+    "country": "Spain",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "timezone": "Europe/Madrid",
+    "search_term": "Madrid Spain",
+    "country_code": "ES",
+    "language": "en"
+  },
+  {
+    "location_id": "rome",
+    "city": "Rome",
+    "country": "Italy",
+    "lat": 41.9028,
+    "lng": 12.4964,
+    "timezone": "Europe/Rome",
+    "search_term": "Rome Italy",
+    "country_code": "IT",
+    "language": "en"
+  },
+  {
+    "location_id": "amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "timezone": "Europe/Amsterdam",
+    "search_term": "Amsterdam Netherlands",
+    "country_code": "NL",
+    "language": "en"
+  },
+  {
+    "location_id": "brussels",
+    "city": "Brussels",
+    "country": "Belgium",
+    "lat": 50.8503,
+    "lng": 4.3517,
+    "timezone": "Europe/Brussels",
+    "search_term": "Brussels Belgium",
+    "country_code": "BE",
+    "language": "en"
+  },
+  {
+    "location_id": "vienna",
+    "city": "Vienna",
+    "country": "Austria",
+    "lat": 48.2082,
+    "lng": 16.3738,
+    "timezone": "Europe/Vienna",
+    "search_term": "Vienna Austria",
+    "country_code": "AT",
+    "language": "en"
+  },
+  {
+    "location_id": "stockholm",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "lat": 59.3293,
+    "lng": 18.0686,
+    "timezone": "Europe/Stockholm",
+    "search_term": "Stockholm Sweden",
+    "country_code": "SE",
+    "language": "en"
+  },
+  {
+    "location_id": "athens",
+    "city": "Athens",
+    "country": "Greece",
+    "lat": 37.9838,
+    "lng": 23.7275,
+    "timezone": "Europe/Athens",
+    "search_term": "Athens Greece",
+    "country_code": "GR",
+    "language": "en"
+  },
+  {
+    "location_id": "copenhagen",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6761,
+    "lng": 12.5683,
+    "timezone": "Europe/Copenhagen",
+    "search_term": "Copenhagen Denmark",
+    "country_code": "DK",
+    "language": "en"
+  },
+  {
+    "location_id": "lisbon",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "lat": 38.7223,
+    "lng": -9.1393,
+    "timezone": "Europe/Lisbon",
+    "search_term": "Lisbon Portugal",
+    "country_code": "PT",
+    "language": "en"
+  },
+  {
+    "location_id": "prague",
+    "city": "Prague",
+    "country": "Czech Republic",
+    "lat": 50.0755,
+    "lng": 14.4378,
+    "timezone": "Europe/Prague",
+    "search_term": "Prague Czech",
+    "country_code": "CZ",
+    "language": "en"
+  },
+  {
+    "location_id": "bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "lat": 13.7563,
+    "lng": 100.5018,
+    "timezone": "Asia/Bangkok",
+    "search_term": "Bangkok Thailand",
+    "country_code": "TH",
+    "language": "en"
+  },
+  {
+    "location_id": "hong-kong",
+    "city": "Hong Kong",
+    "country": "Hong Kong",
+    "lat": 22.3193,
+    "lng": 114.1694,
+    "timezone": "Asia/Hong_Kong",
+    "search_term": "Hong Kong",
+    "country_code": "HK",
+    "language": "en"
+  },
+  {
+    "location_id": "manila",
+    "city": "Manila",
+    "country": "Philippines",
+    "lat": 14.5995,
+    "lng": 120.9842,
+    "timezone": "Asia/Manila",
+    "search_term": "Manila Philippines",
+    "country_code": "PH",
+    "language": "en"
+  },
+  {
+    "location_id": "taipei",
+    "city": "Taipei",
+    "country": "Taiwan",
+    "lat": 25.0330,
+    "lng": 121.5654,
+    "timezone": "Asia/Taipei",
+    "search_term": "Taipei Taiwan",
+    "country_code": "TW",
+    "language": "en"
+  },
+  {
+    "location_id": "kuala-lumpur",
+    "city": "Kuala Lumpur",
+    "country": "Malaysia",
+    "lat": 3.1390,
+    "lng": 101.6869,
+    "timezone": "Asia/Kuala_Lumpur",
+    "search_term": "Kuala Lumpur Malaysia",
+    "country_code": "MY",
+    "language": "en"
+  },
+  {
+    "location_id": "jakarta",
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "lat": -6.2088,
+    "lng": 106.8456,
+    "timezone": "Asia/Jakarta",
+    "search_term": "Jakarta Indonesia",
+    "country_code": "ID",
+    "language": "en"
+  },
+  {
+    "location_id": "delhi",
+    "city": "Delhi",
+    "country": "India",
+    "lat": 28.7041,
+    "lng": 77.1025,
+    "timezone": "Asia/Kolkata",
+    "search_term": "Delhi India",
+    "country_code": "IN",
+    "language": "en"
+  },
+  {
+    "location_id": "johannesburg",
+    "city": "Johannesburg",
+    "country": "South Africa",
+    "lat": -26.2041,
+    "lng": 28.0473,
+    "timezone": "Africa/Johannesburg",
+    "search_term": "Johannesburg South Africa",
+    "country_code": "ZA",
+    "language": "en"
+  },
+  {
+    "location_id": "rio-de-janeiro",
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "lat": -22.9068,
+    "lng": -43.1729,
+    "timezone": "America/Sao_Paulo",
+    "search_term": "Rio de Janeiro Brazil",
+    "country_code": "BR",
+    "language": "en"
+  },
+  {
+    "location_id": "melbourne",
+    "city": "Melbourne",
+    "country": "Australia",
+    "lat": -37.8136,
+    "lng": 144.9631,
+    "timezone": "Australia/Melbourne",
+    "search_term": "Melbourne Australia",
+    "country_code": "AU",
+    "language": "en"
+  },
+  {
+    "location_id": "houston",
+    "city": "Houston",
+    "country": "United States",
+    "lat": 29.7604,
+    "lng": -95.3698,
+    "timezone": "America/Chicago",
+    "search_term": "Houston USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "phoenix",
+    "city": "Phoenix",
+    "country": "United States",
+    "lat": 33.4484,
+    "lng": -112.0740,
+    "timezone": "America/Phoenix",
+    "search_term": "Phoenix USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "philadelphia",
+    "city": "Philadelphia",
+    "country": "United States",
+    "lat": 39.9526,
+    "lng": -75.1652,
+    "timezone": "America/New_York",
+    "search_term": "Philadelphia USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "dallas",
+    "city": "Dallas",
+    "country": "United States",
+    "lat": 32.7767,
+    "lng": -96.7970,
+    "timezone": "America/Chicago",
+    "search_term": "Dallas USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "las-vegas",
+    "city": "Las Vegas",
+    "country": "United States",
+    "lat": 36.1699,
+    "lng": -115.1398,
+    "timezone": "America/Los_Angeles",
+    "search_term": "Las Vegas USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "portland",
+    "city": "Portland",
+    "country": "United States",
+    "lat": 45.5152,
+    "lng": -122.6784,
+    "timezone": "America/Los_Angeles",
+    "search_term": "Portland USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "austin",
+    "city": "Austin",
+    "country": "United States",
+    "lat": 30.2672,
+    "lng": -97.7431,
+    "timezone": "America/Chicago",
+    "search_term": "Austin USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "nashville",
+    "city": "Nashville",
+    "country": "United States",
+    "lat": 36.1627,
+    "lng": -86.7816,
+    "timezone": "America/Chicago",
+    "search_term": "Nashville USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "minneapolis",
+    "city": "Minneapolis",
+    "country": "United States",
+    "lat": 44.9778,
+    "lng": -93.2650,
+    "timezone": "America/Chicago",
+    "search_term": "Minneapolis USA",
+    "country_code": "US",
+    "language": "en"
+  },
+  {
+    "location_id": "montreal",
+    "city": "Montreal",
+    "country": "Canada",
+    "lat": 45.5017,
+    "lng": -73.5673,
+    "timezone": "America/Toronto",
+    "search_term": "Montreal Canada",
+    "country_code": "CA",
+    "language": "en"
+  },
+  {
+    "location_id": "calgary",
+    "city": "Calgary",
+    "country": "Canada",
+    "lat": 51.0447,
+    "lng": -114.0719,
+    "timezone": "America/Edmonton",
+    "search_term": "Calgary Canada",
+    "country_code": "CA",
+    "language": "en"
+  },
+  {
+    "location_id": "ottawa",
+    "city": "Ottawa",
+    "country": "Canada",
+    "lat": 45.4215,
+    "lng": -75.6972,
+    "timezone": "America/Toronto",
+    "search_term": "Ottawa Canada",
+    "country_code": "CA",
+    "language": "en"
+  },
+  {
+    "location_id": "manchester",
+    "city": "Manchester",
+    "country": "United Kingdom",
+    "lat": 53.4808,
+    "lng": -2.2426,
+    "timezone": "Europe/London",
+    "search_term": "Manchester UK",
+    "country_code": "GB",
+    "language": "en"
+  },
+  {
+    "location_id": "edinburgh",
+    "city": "Edinburgh",
+    "country": "United Kingdom",
+    "lat": 55.9533,
+    "lng": -3.1883,
+    "timezone": "Europe/London",
+    "search_term": "Edinburgh UK",
+    "country_code": "GB",
+    "language": "en"
+  },
+  {
+    "location_id": "dublin",
+    "city": "Dublin",
+    "country": "Ireland",
+    "lat": 53.3498,
+    "lng": -6.2603,
+    "timezone": "Europe/Dublin",
+    "search_term": "Dublin Ireland",
+    "country_code": "IE",
+    "language": "en"
+  },
+  {
+    "location_id": "munich",
+    "city": "Munich",
+    "country": "Germany",
+    "lat": 48.1351,
+    "lng": 11.5820,
+    "timezone": "Europe/Berlin",
+    "search_term": "Munich Germany",
+    "country_code": "DE",
+    "language": "en"
+  },
+  {
+    "location_id": "hamburg",
+    "city": "Hamburg",
+    "country": "Germany",
+    "lat": 53.5511,
+    "lng": 9.9937,
+    "timezone": "Europe/Berlin",
+    "search_term": "Hamburg Germany",
+    "country_code": "DE",
+    "language": "en"
+  },
+  {
+    "location_id": "frankfurt",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "lat": 50.1109,
+    "lng": 8.6821,
+    "timezone": "Europe/Berlin",
+    "search_term": "Frankfurt Germany",
+    "country_code": "DE",
+    "language": "en"
+  },
+  {
+    "location_id": "zurich",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "lat": 47.3769,
+    "lng": 8.5417,
+    "timezone": "Europe/Zurich",
+    "search_term": "Zurich Switzerland",
+    "country_code": "CH",
+    "language": "en"
+  },
+  {
+    "location_id": "oslo",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.9139,
+    "lng": 10.7522,
+    "timezone": "Europe/Oslo",
+    "search_term": "Oslo Norway",
+    "country_code": "NO",
+    "language": "en"
+  },
+  {
+    "location_id": "helsinki",
+    "city": "Helsinki",
+    "country": "Finland",
+    "lat": 60.1699,
+    "lng": 24.9384,
+    "timezone": "Europe/Helsinki",
+    "search_term": "Helsinki Finland",
+    "country_code": "FI",
+    "language": "en"
+  },
+  {
+    "location_id": "warsaw",
+    "city": "Warsaw",
+    "country": "Poland",
+    "lat": 52.2297,
+    "lng": 21.0122,
+    "timezone": "Europe/Warsaw",
+    "search_term": "Warsaw Poland",
+    "country_code": "PL",
+    "language": "en"
+  },
+  {
+    "location_id": "budapest",
+    "city": "Budapest",
+    "country": "Hungary",
+    "lat": 47.4979,
+    "lng": 19.0402,
+    "timezone": "Europe/Budapest",
+    "search_term": "Budapest Hungary",
+    "country_code": "HU",
+    "language": "en"
+  },
+  {
+    "location_id": "bucharest",
+    "city": "Bucharest",
+    "country": "Romania",
+    "lat": 44.4268,
+    "lng": 26.1025,
+    "timezone": "Europe/Bucharest",
+    "search_term": "Bucharest Romania",
+    "country_code": "RO",
+    "language": "en"
+  },
+  {
+    "location_id": "barcelona",
+    "city": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3851,
+    "lng": 2.1734,
+    "timezone": "Europe/Madrid",
+    "search_term": "Barcelona Spain",
+    "country_code": "ES",
+    "language": "en"
+  },
+  {
+    "location_id": "milan",
+    "city": "Milan",
+    "country": "Italy",
+    "lat": 45.4642,
+    "lng": 9.1900,
+    "timezone": "Europe/Rome",
+    "search_term": "Milan Italy",
+    "country_code": "IT",
+    "language": "en"
+  },
+  {
+    "location_id": "venice",
+    "city": "Venice",
+    "country": "Italy",
+    "lat": 45.4408,
+    "lng": 12.3155,
+    "timezone": "Europe/Rome",
+    "search_term": "Venice Italy",
+    "country_code": "IT",
+    "language": "en"
+  },
+  {
+    "location_id": "lyon",
+    "city": "Lyon",
+    "country": "France",
+    "lat": 45.7640,
+    "lng": 4.8357,
+    "timezone": "Europe/Paris",
+    "search_term": "Lyon France",
+    "country_code": "FR",
+    "language": "en"
+  },
+  {
+    "location_id": "marseille",
+    "city": "Marseille",
+    "country": "France",
+    "lat": 43.2965,
+    "lng": 5.3698,
+    "timezone": "Europe/Paris",
+    "search_term": "Marseille France",
+    "country_code": "FR",
+    "language": "en"
+  },
+  {
+    "location_id": "nice",
+    "city": "Nice",
+    "country": "France",
+    "lat": 43.7102,
+    "lng": 7.2620,
+    "timezone": "Europe/Paris",
+    "search_term": "Nice France",
+    "country_code": "FR",
+    "language": "en"
+  },
+  {
+    "location_id": "shanghai",
+    "city": "Shanghai",
+    "country": "China",
+    "lat": 31.2304,
+    "lng": 121.4737,
+    "timezone": "Asia/Shanghai",
+    "search_term": "Shanghai China",
+    "country_code": "CN",
+    "language": "en"
+  },
+  {
+    "location_id": "guangzhou",
+    "city": "Guangzhou",
+    "country": "China",
+    "lat": 23.1291,
+    "lng": 113.2644,
+    "timezone": "Asia/Shanghai",
+    "search_term": "Guangzhou China",
+    "country_code": "CN",
+    "language": "en"
+  },
+  {
+    "location_id": "shenzhen",
+    "city": "Shenzhen",
+    "country": "China",
+    "lat": 22.5431,
+    "lng": 114.0579,
+    "timezone": "Asia/Shanghai",
+    "search_term": "Shenzhen China",
+    "country_code": "CN",
+    "language": "en"
+  },
+  {
+    "location_id": "osaka",
+    "city": "Osaka",
+    "country": "Japan",
+    "lat": 34.6937,
+    "lng": 135.5023,
+    "timezone": "Asia/Tokyo",
+    "search_term": "Osaka Japan",
+    "country_code": "JP",
+    "language": "en"
+  },
+  {
+    "location_id": "kyoto",
+    "city": "Kyoto",
+    "country": "Japan",
+    "lat": 35.0116,
+    "lng": 135.7681,
+    "timezone": "Asia/Tokyo",
+    "search_term": "Kyoto Japan",
+    "country_code": "JP",
+    "language": "en"
+  },
+  {
+    "location_id": "busan",
+    "city": "Busan",
+    "country": "South Korea",
+    "lat": 35.1796,
+    "lng": 129.0756,
+    "timezone": "Asia/Seoul",
+    "search_term": "Busan Korea",
+    "country_code": "KR",
+    "language": "en"
+  },
+  {
+    "location_id": "hanoi",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "lat": 21.0285,
+    "lng": 105.8542,
+    "timezone": "Asia/Ho_Chi_Minh",
+    "search_term": "Hanoi Vietnam",
+    "country_code": "VN",
+    "language": "en"
+  },
+  {
+    "location_id": "ho-chi-minh",
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "timezone": "Asia/Ho_Chi_Minh",
+    "search_term": "Ho Chi Minh Vietnam",
+    "country_code": "VN",
+    "language": "en"
+  },
+  {
+    "location_id": "colombo",
+    "city": "Colombo",
+    "country": "Sri Lanka",
+    "lat": 6.9271,
+    "lng": 79.8612,
+    "timezone": "Asia/Colombo",
+    "search_term": "Colombo Sri Lanka",
+    "country_code": "LK",
+    "language": "en"
+  },
+  {
+    "location_id": "dhaka",
+    "city": "Dhaka",
+    "country": "Bangladesh",
+    "lat": 23.8103,
+    "lng": 90.4125,
+    "timezone": "Asia/Dhaka",
+    "search_term": "Dhaka Bangladesh",
+    "country_code": "BD",
+    "language": "en"
+  },
+  {
+    "location_id": "karachi",
+    "city": "Karachi",
+    "country": "Pakistan",
+    "lat": 24.8607,
+    "lng": 67.0011,
+    "timezone": "Asia/Karachi",
+    "search_term": "Karachi Pakistan",
+    "country_code": "PK",
+    "language": "en"
+  },
+  {
+    "location_id": "islamabad",
+    "city": "Islamabad",
+    "country": "Pakistan",
+    "lat": 33.6844,
+    "lng": 73.0479,
+    "timezone": "Asia/Karachi",
+    "search_term": "Islamabad Pakistan",
+    "country_code": "PK",
+    "language": "en"
+  },
+  {
+    "location_id": "bangalore",
+    "city": "Bangalore",
+    "country": "India",
+    "lat": 12.9716,
+    "lng": 77.5946,
+    "timezone": "Asia/Kolkata",
+    "search_term": "Bangalore India",
+    "country_code": "IN",
+    "language": "en"
+  },
+  {
+    "location_id": "chennai",
+    "city": "Chennai",
+    "country": "India",
+    "lat": 13.0827,
+    "lng": 80.2707,
+    "timezone": "Asia/Kolkata",
+    "search_term": "Chennai India",
+    "country_code": "IN",
+    "language": "en"
+  },
+  {
+    "location_id": "kolkata",
+    "city": "Kolkata",
+    "country": "India",
+    "lat": 22.5726,
+    "lng": 88.3639,
+    "timezone": "Asia/Kolkata",
+    "search_term": "Kolkata India",
+    "country_code": "IN",
+    "language": "en"
+  },
+  {
+    "location_id": "tel-aviv",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "lat": 32.0853,
+    "lng": 34.7818,
+    "timezone": "Asia/Jerusalem",
+    "search_term": "Tel Aviv Israel",
+    "country_code": "IL",
+    "language": "en"
+  },
+  {
+    "location_id": "riyadh",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "lat": 24.7136,
+    "lng": 46.6753,
+    "timezone": "Asia/Riyadh",
+    "search_term": "Riyadh Saudi Arabia",
+    "country_code": "SA",
+    "language": "en"
+  },
+  {
+    "location_id": "doha",
+    "city": "Doha",
+    "country": "Qatar",
+    "lat": 25.2854,
+    "lng": 51.5310,
+    "timezone": "Asia/Qatar",
+    "search_term": "Doha Qatar",
+    "country_code": "QA",
+    "language": "en"
+  },
+  {
+    "location_id": "cape-town",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "lat": -33.9249,
+    "lng": 18.4241,
+    "timezone": "Africa/Johannesburg",
+    "search_term": "Cape Town South Africa",
+    "country_code": "ZA",
+    "language": "en"
+  },
+  {
+    "location_id": "accra",
+    "city": "Accra",
+    "country": "Ghana",
+    "lat": 5.6037,
+    "lng": -0.1870,
+    "timezone": "Africa/Accra",
+    "search_term": "Accra Ghana",
+    "country_code": "GH",
+    "language": "en"
+  },
+  {
+    "location_id": "addis-ababa",
+    "city": "Addis Ababa",
+    "country": "Ethiopia",
+    "lat": 9.0320,
+    "lng": 38.7469,
+    "timezone": "Africa/Addis_Ababa",
+    "search_term": "Addis Ababa Ethiopia",
+    "country_code": "ET",
+    "language": "en"
+  },
+  {
+    "location_id": "casablanca",
+    "city": "Casablanca",
+    "country": "Morocco",
+    "lat": 33.5731,
+    "lng": -7.5898,
+    "timezone": "Africa/Casablanca",
+    "search_term": "Casablanca Morocco",
+    "country_code": "MA",
+    "language": "en"
+  },
+  {
+    "location_id": "tunis",
+    "city": "Tunis",
+    "country": "Tunisia",
+    "lat": 36.8065,
+    "lng": 10.1815,
+    "timezone": "Africa/Tunis",
+    "search_term": "Tunis Tunisia",
+    "country_code": "TN",
+    "language": "en"
+  },
+  {
+    "location_id": "algiers",
+    "city": "Algiers",
+    "country": "Algeria",
+    "lat": 36.7538,
+    "lng": 3.0588,
+    "timezone": "Africa/Algiers",
+    "search_term": "Algiers Algeria",
+    "country_code": "DZ",
+    "language": "en"
+  },
+  {
+    "location_id": "dar-es-salaam",
+    "city": "Dar es Salaam",
+    "country": "Tanzania",
+    "lat": -6.7924,
+    "lng": 39.2083,
+    "timezone": "Africa/Dar_es_Salaam",
+    "search_term": "Dar es Salaam Tanzania",
+    "country_code": "TZ",
+    "language": "en"
+  },
+  {
+    "location_id": "kampala",
+    "city": "Kampala",
+    "country": "Uganda",
+    "lat": 0.3476,
+    "lng": 32.5825,
+    "timezone": "Africa/Kampala",
+    "search_term": "Kampala Uganda",
+    "country_code": "UG",
+    "language": "en"
+  },
+  {
+    "location_id": "kigali",
+    "city": "Kigali",
+    "country": "Rwanda",
+    "lat": -1.9441,
+    "lng": 30.0619,
+    "timezone": "Africa/Kigali",
+    "search_term": "Kigali Rwanda",
+    "country_code": "RW",
+    "language": "en"
+  },
+  {
+    "location_id": "abuja",
+    "city": "Abuja",
+    "country": "Nigeria",
+    "lat": 9.0765,
+    "lng": 7.3986,
+    "timezone": "Africa/Lagos",
+    "search_term": "Abuja Nigeria",
+    "country_code": "NG",
+    "language": "en"
+  },
+  {
+    "location_id": "bogota",
+    "city": "Bogotá",
+    "country": "Colombia",
+    "lat": 4.7110,
+    "lng": -74.0721,
+    "timezone": "America/Bogota",
+    "search_term": "Bogotá Colombia",
+    "country_code": "CO",
+    "language": "en"
+  },
+  {
+    "location_id": "lima",
+    "city": "Lima",
+    "country": "Peru",
+    "lat": -12.0464,
+    "lng": -77.0428,
+    "timezone": "America/Lima",
+    "search_term": "Lima Peru",
+    "country_code": "PE",
+    "language": "en"
+  },
+  {
+    "location_id": "santiago",
+    "city": "Santiago",
+    "country": "Chile",
+    "lat": -33.4489,
+    "lng": -70.6693,
+    "timezone": "America/Santiago",
+    "search_term": "Santiago Chile",
+    "country_code": "CL",
+    "language": "en"
+  },
+  {
+    "location_id": "quito",
+    "city": "Quito",
+    "country": "Ecuador",
+    "lat": -0.1807,
+    "lng": -78.4678,
+    "timezone": "America/Guayaquil",
+    "search_term": "Quito Ecuador",
+    "country_code": "EC",
+    "language": "en"
+  },
+  {
+    "location_id": "caracas",
+    "city": "Caracas",
+    "country": "Venezuela",
+    "lat": 10.4806,
+    "lng": -66.9036,
+    "timezone": "America/Caracas",
+    "search_term": "Caracas Venezuela",
+    "country_code": "VE",
+    "language": "en"
+  },
+  {
+    "location_id": "brisbane",
+    "city": "Brisbane",
+    "country": "Australia",
+    "lat": -27.4698,
+    "lng": 153.0251,
+    "timezone": "Australia/Brisbane",
+    "search_term": "Brisbane Australia",
+    "country_code": "AU",
+    "language": "en"
+  },
+  {
+    "location_id": "auckland",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "lat": -36.8485,
+    "lng": 174.7633,
+    "timezone": "Pacific/Auckland",
+    "search_term": "Auckland New Zealand",
+    "country_code": "NZ",
+    "language": "en"
+  },
+  {
+    "location_id": "wellington",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "lat": -41.2865,
+    "lng": 174.7762,
+    "timezone": "Pacific/Auckland",
+    "search_term": "Wellington New Zealand",
+    "country_code": "NZ",
+    "language": "en"
+  },
+  {
+    "location_id": "perth",
+    "city": "Perth",
+    "country": "Australia",
+    "lat": -31.9505,
+    "lng": 115.8605,
+    "timezone": "Australia/Perth",
+    "search_term": "Perth Australia",
+    "country_code": "AU",
+    "language": "en"
+  },
+  {
+    "location_id": "adelaide",
+    "city": "Adelaide",
+    "country": "Australia",
+    "lat": -34.9285,
+    "lng": 138.6007,
+    "timezone": "Australia/Adelaide",
+    "search_term": "Adelaide Australia",
+    "country_code": "AU",
+    "language": "en"
   }
 ]

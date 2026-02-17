@@ -76,6 +76,7 @@ body {
 .header-buttons {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .app-title {
@@ -106,7 +107,31 @@ body {
 }
 
 .app-main {
-  display: flex;
   flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.error-message {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
   padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  max-width: 400px;
 }

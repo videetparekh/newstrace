@@ -37,7 +37,7 @@ async def fetch_from_newsapi(city: str, country: str) -> list[Headline] | None:
         "language": "en",
         "category": "politics,business,breaking"
     }
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(follow_redirects=True) as client:
         resp = await client.get(url, params=params, timeout=10)
         if resp.status_code != 200:
             return None
@@ -60,7 +60,7 @@ async def fetch_from_newsapi(city: str, country: str) -> list[Headline] | None:
 async def fetch_from_google_rss(city: str, country: str) -> list[Headline] | None:
     query = f"{city} {country}"
     url = f"https://news.google.com/rss/search?q={query}&hl=en&gl=US&ceid=US:en"
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(follow_redirects=True) as client:
         resp = await client.get(url, timeout=10)
         if resp.status_code != 200:
             return None
@@ -85,10 +85,8 @@ async def get_headlines(location_id: str, city: str, country: str) -> list[Headl
     if cached:
         return cached
 
-    headlines = await fetch_from_newsapi(city, country)
-
-    if not headlines:
-        headlines = await fetch_from_google_rss(city, country)
+    # Skip NewsData.io API (rate limited) and use Google News RSS directly
+    headlines = await fetch_from_google_rss(city, country)
 
     if headlines:
         _set_cache(location_id, headlines)
