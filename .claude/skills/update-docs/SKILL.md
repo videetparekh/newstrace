@@ -8,7 +8,7 @@ allowed-tools: Read, Edit
 
 ## Context
 - Code changes:
-!`git diff $(git merge-base HEAD main)..HEAD -- src/`
+!`git diff $(git merge-base HEAD main)..HEAD -- service/src/`
 - UI changes:
 !`git diff $(git merge-base HEAD main)..HEAD -- ui/`
 - Documentation: `docs/` and `ui/public/docs/` directories
